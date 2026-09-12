@@ -1,0 +1,7 @@
+{$QUAD_DOMAIN:localhost} {
+	reverse_proxy quad:3000
+}
+
+{$KC_DOMAIN:auth.localhost} {
+	reverse_proxy keycloak:8080
+}
