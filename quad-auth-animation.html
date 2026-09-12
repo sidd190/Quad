@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Quad — Identity animation</title>
+  <style>
+    :root{color-scheme:light dark;--ink:#171717;--paper:#f5f0e8;--accent:#d8573c;--muted:#756f67}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--paper);font-family:Inter,ui-sans-serif,system-ui,sans-serif;overflow:hidden}
+    .stage{width:min(88vw,760px);text-align:center}.logo{width:100%;overflow:visible}.gate{fill:var(--ink);opacity:0;transform-box:fill-box;transform-origin:center;animation:arrive 5s cubic-bezier(.2,.8,.2,1) infinite}.g1{--x:-22px;--y:-22px}.g2{--x:22px;--y:-22px;animation-delay:.12s}.g3{--x:-22px;--y:22px;animation-delay:.24s}.g4{--x:22px;--y:22px;fill:var(--accent);animation-delay:.36s}.word{fill:var(--ink);opacity:0;transform:translateY(10px);animation:word 5s ease infinite}.status{margin-top:.75rem;color:var(--muted);font-size:clamp(.75rem,2vw,.95rem);font-weight:650;letter-spacing:.16em;text-transform:uppercase;opacity:0;animation:status 5s ease infinite}.pulse{display:inline-block;width:.48rem;height:.48rem;margin-right:.55rem;border-radius:50%;background:var(--accent);transform:scale(0);animation:pulse 5s ease infinite}
+    @keyframes arrive{0%,8%{opacity:0;transform:translate(var(--x),var(--y)) scale(.82)}30%,88%{opacity:1;transform:none}100%{opacity:0;transform:scale(.96)}}
+    @keyframes word{0%,34%{opacity:0;transform:translateY(10px)}50%,88%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-4px)}}
+    @keyframes status{0%,50%{opacity:0}63%,84%{opacity:1}96%,100%{opacity:0}}
+    @keyframes pulse{0%,54%{transform:scale(0)}66%{transform:scale(1);box-shadow:0 0 0 0 rgba(216,87,60,.35)}76%{box-shadow:0 0 0 9px rgba(216,87,60,0)}88%{transform:scale(1)}100%{transform:scale(0)}}
+    @media(prefers-color-scheme:dark){:root{--ink:#f1ece3;--paper:#151412;--muted:#aaa298}}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important}.gate,.word,.status{opacity:1;transform:none}.pulse{transform:scale(1)}}
+  </style>
+</head>
+<body><main class="stage" aria-label="Quad identity animation">
+  <svg class="logo" viewBox="0 0 720 240" role="img" aria-labelledby="t d"><title id="t">Quad</title><desc id="d">Four campus gateways meet around a shared quadrangle.</desc>
+    <path class="gate g1" d="M24 24h88v34H96C75 58 58 75 58 96v16H24Z"/>
+    <path class="gate g2" d="M130 24h88v88h-34V96c0-21-17-38-38-38h-16Z"/>
+    <path class="gate g3" d="M24 130h34v16c0 21 17 38 38 38h16v34H24Z"/>
+    <path class="gate g4" d="M130 130h16c21 0 38 17 38 38v16h14l35 34h-50l-34-34h-19Z"/>
+    <text class="word" x="270" y="162" font-size="118" font-weight="760" letter-spacing="-7">Quad</text>
+  </svg>
+  <div class="status"><span class="pulse"></span>Identity connected</div>
+</main></body></html>
